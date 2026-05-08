@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+google-adk = ">=1.0.0"
+google-generativeai = ">=0.8.0"
+python-dotenv = ">=1.0.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

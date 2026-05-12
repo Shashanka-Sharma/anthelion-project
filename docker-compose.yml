@@ -28,12 +28,13 @@ services:
 
   agent:
     build: .
-    command: python agent.py
+    command: uvicorn api:app --host 0.0.0.0 --port 8000
     environment:
       DATABASE_URL: postgresql://anthelion:anthelion@postgres:5432/anthelion
       DATABASE_URL_ASYNC: postgresql+asyncpg://anthelion:anthelion@postgres:5432/anthelion
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
-      DEMO_TASK: ${DEMO_TASK:-}
+    ports:
+      - "8000:8000"
     depends_on:
       db_init:
         condition: service_completed_successfully
